@@ -2,7 +2,7 @@
 set -xe
 
 apt-get update
-apt-get install wget
+apt-get install -y wget
 apt-get install -y build-essential git unzip ruby-bundler zlib1g-dev libsqlite3-dev libssl-dev zlibc zlib1g-dev openssl libxslt-dev libxml2-dev libreadline6 libreadline6-dev ruby ruby-dev libxml2-dev libsqlite3-dev libxslt1-dev libpq-dev libmysqlclient-dev zlib1g-dev
 
 wget -c https://s3.amazonaws.com/bosh-init-artifacts/bosh-init-0.0.96-linux-amd64
