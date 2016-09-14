@@ -18,3 +18,8 @@ wget -c https://releases.hashicorp.com/terraform/0.7.3/terraform_0.7.3_linux_amd
 unzip terraform_0.7.3_linux_amd64.zip
 rm terraform_0.7.3_linux_amd64.zip
 mv terraform* /usr/local/bin/
+
+#check for versions
+bosh-init -v
+spiff -v
+terraform -v
