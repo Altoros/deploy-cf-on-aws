@@ -1,5 +1,5 @@
 resources:
-- name: deploy-bosh
+- name: deploy-cf-on-aws
   type: git
   source:
     uri: git@github.com:poligraph/deploy-cf-on-aws.git
@@ -10,7 +10,7 @@ jobs:
 - name: deploy-bosh
   serial: true
   plan:
-  - get: deploy-bosh
+  - get: deploy-cf-on-aws
     trigger: false
   - task: download-cli
     config:
