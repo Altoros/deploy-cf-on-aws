@@ -1,5 +1,5 @@
 #!/bin/bash
-set -e
+set -xe
 
 wget -c https://s3.amazonaws.com/bosh-init-artifacts/bosh-init-0.0.96-linux-amd64
 chmod +x bosh-init-0.0.96-linux-amd64
