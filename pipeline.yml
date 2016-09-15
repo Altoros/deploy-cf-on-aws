@@ -19,7 +19,7 @@ jobs:
     trigger: true
   - get: cf-workspace
     trigger: false
-  - task: download-cli
+  - task: apply-terraform
     config:
       platform: linux
       image_resource:
