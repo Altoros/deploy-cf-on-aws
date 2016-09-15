@@ -40,5 +40,5 @@ export TF_VAR_region=$region
 export TF_VAR_pub_key="id_rsa_tf.pub"
 export TF_VAR_pvt_key="id_rsa_tf"
 
-cd cf-workspace
+cd cf-workspace/terraform/aws
 make apply

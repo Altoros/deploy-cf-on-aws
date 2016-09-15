@@ -12,7 +12,7 @@ resources:
     branch: master
     private_key: {{githubsshkey}}
 jobs:
-- name: apply-terraform
+- name: create-jumpbox-and-bosh
   serial: true
   plan:
   - get: deploy-cf-on-aws
