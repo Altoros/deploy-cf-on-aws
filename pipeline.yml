@@ -11,15 +11,14 @@ resources:
     uri: git@github.com:Altoros/cf-workspace.git
     branch: master
     private_key: {{githubsshkey}}
-
-
-
 jobs:
-- name: deploy-bosh
+- name: apply-terraform
   serial: true
   plan:
   - get: deploy-cf-on-aws
     trigger: true
+  - get: cf-workspace
+    trigger: false
   - task: download-cli
     config:
       platform: linux
@@ -30,14 +29,10 @@ jobs:
         - name: deploy-cf-on-aws
         - name: cf-workspace
       run:
-        path: deploy-cf-on-aws/download-cli.sh
-  - task: apply-terraform
-    config:
-      platform: linux
-      image_resource:
-        type: docker-image
-        source: {repository: ubuntu, tag: "16.04"}
-      inputs:
-        - name: cf-workspace
-      run:
         path: deploy-cf-on-aws/apply-terraform.sh
+      params:
+        aws_id: {{aws_id}}
+        aws_key: {{aws_key}}
+        region: {{region}}
+        pub_key: {{pub_key}}
+        pvt_key: {{pvt_key}}
