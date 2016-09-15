@@ -5,6 +5,14 @@ resources:
     uri: git@github.com:poligraph/deploy-cf-on-aws.git
     branch: master
     private_key: {{githubsshkey}}
+- name: cf-workspace
+  type: git
+  source:
+    uri: git@github.com:Altoros/cf-workspace.git
+    branch: master
+    private_key: {{githubsshkey}}
+
+
 
 jobs:
 - name: deploy-bosh
@@ -20,5 +28,16 @@ jobs:
         source: {repository: ubuntu, tag: "16.04"}
       inputs:
         - name: deploy-cf-on-aws
+        - name: cf-workspace
       run:
         path: deploy-cf-on-aws/download-cli.sh
+  - task: apply-terraform
+    config:
+      platform: linux
+      image_resource:
+        type: docker-image
+        source: {repository: ubuntu, tag: "16.04"}
+      inputs:
+        - name: cf-workspace
+      run:
+        path: deploy-cf-on-aws/apply-terraform.sh
