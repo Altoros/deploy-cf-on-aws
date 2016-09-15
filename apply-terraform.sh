@@ -1,9 +1,9 @@
 #!/bin/bash
 set -xe
 
-apt-get update
-apt-get install -qq -y wget
-apt-get install -qq -yy build-essential git unzip ruby-bundler zlib1g-dev libsqlite3-dev libssl-dev zlibc zlib1g-dev openssl libxslt-dev libxml2-dev libreadline6 libreadline6-dev ruby ruby-dev libxml2-dev libsqlite3-dev libxslt1-dev libpq-dev libmysqlclient-dev zlib1g-dev
+apt-get -qq update
+apt-get -qq -y install wget
+apt-get -qq -y install build-essential git unzip ruby-bundler zlib1g-dev libsqlite3-dev libssl-dev zlibc zlib1g-dev openssl libxslt-dev libxml2-dev libreadline6 libreadline6-dev ruby ruby-dev libxml2-dev libsqlite3-dev libxslt1-dev libpq-dev libmysqlclient-dev zlib1g-dev
 
 wget -c https://s3.amazonaws.com/bosh-init-artifacts/bosh-init-0.0.96-linux-amd64
 chmod +x bosh-init-0.0.96-linux-amd64
@@ -24,11 +24,15 @@ bosh-init -v
 spiff -v
 terraform -v
 
-export pub_key=$pub_key
-export pvt_key=$pvt_key
+# export pub_key=$pub_key
+# export pvt_key=$pvt_key
+#
+# printenv $PUB_KEY > ~/.ssh/id_rsa_tf.pub
+# printenv $PVT_KEY > ~/.ssh/id_rsa_tf
 
-printenv $PUB_KEY > ~/.ssh/id_rsa_tf.pub
-printenv $PVT_KEY > ~/.ssh/id_rsa_tf
+echo $pub_key > ~/.ssh/id_rsa_tf.pub
+echo $pvt_key > ~/.ssh/id_rsa_tf
+
 
 export TF_VAR_access_key=$aws_id
 export TF_VAR_secret_key=$aws_key

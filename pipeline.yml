@@ -19,7 +19,7 @@ jobs:
     trigger: true
   - get: cf-workspace
     trigger: false
-  - task: apply-terraform
+  - task: create-jumpbox-and-bosh-with-terraform
     config:
       platform: linux
       image_resource:
