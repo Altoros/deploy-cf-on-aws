@@ -30,15 +30,15 @@ terraform -v
 # printenv $PUB_KEY > ~/.ssh/id_rsa_tf.pub
 # printenv $PVT_KEY > ~/.ssh/id_rsa_tf
 
-echo $pub_key > id_rsa_tf.pub
-echo $pvt_key > id_rsa_tf
+#echo $pub_key > id_rsa_tf.pub
+#echo $pvt_key > id_rsa_tf
 
 
 export TF_VAR_access_key=$aws_id
 export TF_VAR_secret_key=$aws_key
 export TF_VAR_region=$region
-export TF_VAR_pub_key="id_rsa_tf.pub"
-export TF_VAR_pvt_key="id_rsa_tf"
+export TF_VAR_pub_key="deploy-cf-on-aws/jumpbox.pub"
+export TF_VAR_pvt_key="deploy-cf-on-aws/jumpbox.pem"
 
 cd cf-workspace/terraform/aws
 make apply
