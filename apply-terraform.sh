@@ -37,8 +37,8 @@ terraform -v
 export TF_VAR_access_key=$aws_id
 export TF_VAR_secret_key=$aws_key
 export TF_VAR_region=$region
-export TF_VAR_pub_key="deploy-cf-on-aws/jumpbox.pub"
-export TF_VAR_pvt_key="deploy-cf-on-aws/jumpbox.pem"
+#export TF_VAR_pub_key=`pwd`/deploy-cf-on-aws/jumpbox.pub
+#export TF_VAR_pvt_key=`pwd`/deploy-cf-on-aws/jumpbox.pem
 
-cd cf-workspace/terraform/aws
+cd cf-workspace/terraform/aws-resources-only
 make apply

@@ -12,14 +12,14 @@ resources:
     branch: master
     private_key: {{githubsshkey}}
 jobs:
-- name: create-jumpbox-and-bosh
+- name: create-aws-resources
   serial: true
   plan:
   - get: deploy-cf-on-aws
     trigger: true
   - get: cf-workspace
     trigger: false
-  - task: create-jumpbox-and-bosh-with-terraform
+  - task: create-aws-resources-with-terraform
     config:
       platform: linux
       image_resource:
@@ -34,5 +34,3 @@ jobs:
         aws_id: {{aws_id}}
         aws_key: {{aws_key}}
         region: {{region}}
-        pub_key: {{pub_key}}
-        pvt_key: {{pvt_key}}
