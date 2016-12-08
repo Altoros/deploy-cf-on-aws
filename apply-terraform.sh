@@ -1,6 +1,9 @@
 #!/bin/bash
 set -xe
 
+apt-get update
+apt-get install -y wget
+
 wget -c https://releases.hashicorp.com/terraform/0.7.13/terraform_0.7.13_linux_amd64.zip
 unzip terraform_0.7.13_linux_amd64.zip
 rm terraform_0.7.13_linux_amd64.zip
