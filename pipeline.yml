@@ -34,11 +34,9 @@ jobs:
         aws_id: {{aws_id}}
         aws_key: {{aws_key}}
         region: {{region}}
-        pub_key: {{pub_key}} 
-        pvt_key: {{pvt_key}}
         ssl_cert: {{ssl_cert}}
         system_domain: {{system_domain}}
         cf_release: {{cf_release}}
         cf_secret: {{cf_secret}}
         rds_password: {{rds_password}}
-        altoros-ci_pvt_key: {{altoros-ci_pvt_key}}
+        altorosci_pvt_key: {{altorosci_pvt_key}}

@@ -33,7 +33,7 @@ export TF_VAR_system_domain=$system_domain
 export TF_VAR_cf_release=$cf_release
 export TF_VAR_cf_secret=$cf_secret
 export TF_VAR_rds_password=$rds_password
-export TF_VAR_altoros-ci_pvt_key=$altoros-ci_pvt_key
+export TF_VAR_altoros-ci_pvt_key=${altorosci_pvt_key}
 
 cd cf-workspace/terraform/aws
 make apply
