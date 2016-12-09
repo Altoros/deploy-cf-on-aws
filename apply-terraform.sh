@@ -35,7 +35,7 @@ export TF_VAR_cf_secret=$cf_secret
 export TF_VAR_rds_password=$rds_password
 
 echo ${altorosci_pvt_key} > /tmp/altorosci.pem
-export TF_VAR_altoros-ci_pvt_key=/tmp/altorosci.pem
+export TF_VAR_altoros-ci_pvt_key="/tmp/altorosci.pem"
 
 cd cf-workspace/terraform/aws
 make apply
