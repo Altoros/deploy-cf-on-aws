@@ -42,4 +42,4 @@ echo "EOF" >> cf-workspace/terraform/aws/terraform.tfvars
 cd cf-workspace/terraform/aws
 make apply
 sleep 60
-make destroy
+make destroy-ci
