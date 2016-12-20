@@ -1,17 +1,6 @@
 #!/bin/bash
 set -xe
 
-#apt-get update
-#apt-get install -y wget git unzip make vim
-#
-#wget -c https://releases.hashicorp.com/terraform/0.7.13/terraform_0.7.13_linux_amd64.zip
-#unzip terraform_0.7.13_linux_amd64.zip
-#rm terraform_0.7.13_linux_amd64.zip
-#mv terraform* /usr/local/bin/
-#
-##check for versions
-#terraform -v
-
 export TF_VAR_access_key=$aws_id
 export TF_VAR_secret_key=$aws_key
 export TF_VAR_region=$region
@@ -30,8 +19,6 @@ echo "EOF" >> cf-workspace/terraform/aws/terraform.tfvars
 cd cf-workspace/terraform/aws
 make apply
 
-# copy tfcontent to temp dir
+# copy tf state to temp dir
 mkdir -p ../../../task-temp/tf-aws/
 cp -vr * ../../../task-temp/tf-aws/
-#sleep 60
-#make destroy-ci
