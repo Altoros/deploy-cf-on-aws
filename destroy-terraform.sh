@@ -12,13 +12,5 @@ export TF_VAR_cf_release=$cf_release
 export TF_VAR_cf_secret=$cf_secret
 export TF_VAR_rds_password=$rds_password
 
-echo "altorosci_pvt_key = <<EOF" >> cf-workspace/terraform/aws/terraform.tfvars
-echo "${altorosci_pvt_key}" >> cf-workspace/terraform/aws/terraform.tfvars
-echo "EOF" >> cf-workspace/terraform/aws/terraform.tfvars
-
-cd cf-workspace/terraform/aws
-make apply
-
-# copy tf state to temp dir
-mkdir -p ../../../task-temp/tf-aws/
-cp -vr * ../../../task-temp/tf-aws/
+cd task-temp/tf-aws
+make destroy-ci
