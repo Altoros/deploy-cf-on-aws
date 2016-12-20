@@ -29,7 +29,7 @@ jobs:
         - name: deploy-cf-on-aws
         - name: cf-workspace
       outputs:
-        - name: cf-temp
+        - name: task-temp
       run:
         path: deploy-cf-on-aws/apply-terraform.sh
       params:

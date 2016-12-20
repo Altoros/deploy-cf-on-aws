@@ -2,7 +2,7 @@
 set -xe
 
 apt-get update
-apt-get install -y wget git unzip make
+apt-get install -y wget git unzip make vim
 
 wget -c https://releases.hashicorp.com/terraform/0.7.13/terraform_0.7.13_linux_amd64.zip
 unzip terraform_0.7.13_linux_amd64.zip
