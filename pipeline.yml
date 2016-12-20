@@ -3,7 +3,7 @@ resources:
   type: git
   source:
     uri: git@github.com:poligraph/deploy-cf-on-aws.git
-    branch: master
+    branch: develop
     private_key: {{githubsshkey}}
 - name: cf-workspace
   type: git
@@ -28,6 +28,8 @@ jobs:
       inputs:
         - name: deploy-cf-on-aws
         - name: cf-workspace
+      outputs:
+        - name: cf-temp
       run:
         path: deploy-cf-on-aws/apply-terraform.sh
       params:
@@ -40,3 +42,27 @@ jobs:
         cf_secret: {{cf_secret}}
         rds_password: {{rds_password}}
         altorosci_pvt_key: {{altorosci_pvt_key}}
+  - task: destroy-aws-resources-with-terraform
+    config:
+      platform: linux
+      image_resource:
+        type: docker-image
+        source: {repository: ubuntu, tag: "16.04"}
+      inputs:
+        - name: deploy-cf-on-aws
+#        - name: cf-workspace
+      outputs:
+        - name: task-temp
+      run:
+        path: deploy-cf-on-aws/destroy-terraform.sh
+      params:
+        aws_id: {{aws_id}}
+        aws_key: {{aws_key}}
+        region: {{region}}
+        ssl_cert: {{ssl_cert}}
+        system_domain: {{system_domain}}
+        cf_release: {{cf_release}}
+        cf_secret: {{cf_secret}}
+        rds_password: {{rds_password}}
+        altorosci_pvt_key: {{altorosci_pvt_key}}
+
