@@ -24,7 +24,7 @@ jobs:
       platform: linux
       image_resource:
         type: docker-image
-        source: {repository: ubuntu, tag: "16.04"}
+        source: {repository: poligraph/ubuntu-ci, tag: "latest"}
       inputs:
         - name: deploy-cf-on-aws
         - name: cf-workspace
@@ -47,12 +47,10 @@ jobs:
       platform: linux
       image_resource:
         type: docker-image
-        source: {repository: ubuntu, tag: "16.04"}
+        source: {repository: poligraph/ubuntu-ci, tag: "latest"}
       inputs:
-        - name: deploy-cf-on-aws
-#        - name: cf-workspace
-      outputs:
         - name: task-temp
+        - name: deploy-cf-on-aws
       run:
         path: deploy-cf-on-aws/destroy-terraform.sh
       params:
