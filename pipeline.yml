@@ -42,6 +42,7 @@ jobs:
         cf_secret: {{cf_secret}}
         rds_password: {{rds_password}}
         altorosci_pvt_key: {{altorosci_pvt_key}}
+        route53_zoneid: {{route53_zoneid}}
   - task: destroy-aws-resources-with-terraform
     config:
       platform: linux
@@ -63,4 +64,5 @@ jobs:
         cf_secret: {{cf_secret}}
         rds_password: {{rds_password}}
         altorosci_pvt_key: {{altorosci_pvt_key}}
+        route53_zoneid: {{route53_zoneid}}
 
