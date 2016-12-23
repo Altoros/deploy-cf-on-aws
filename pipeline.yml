@@ -9,7 +9,7 @@ resources:
   type: git
   source:
     uri: git@github.com:Altoros/cf-workspace.git
-    branch: master
+    branch: tf-develop
     private_key: {{githubsshkey}}
 jobs:
 - name: create-aws-resources
@@ -43,6 +43,17 @@ jobs:
         rds_password: {{rds_password}}
         altorosci_pvt_key: {{altorosci_pvt_key}}
         route53_zoneid: {{route53_zoneid}}
+  - task: deploy-cf-on-aws
+    config:
+      platform: linux
+      image_resource:
+        type: docker-image
+        source: {repository: poligraph/ubuntu-ci, tag: "latest"}
+      inputs:
+        - name: deploy-cf-on-aws
+        - name: task-temp
+      run:
+        path: deploy-cf-on-aws/deploy-cf.sh
   - task: destroy-aws-resources-with-terraform
     config:
       platform: linux
@@ -65,4 +76,3 @@ jobs:
         rds_password: {{rds_password}}
         altorosci_pvt_key: {{altorosci_pvt_key}}
         route53_zoneid: {{route53_zoneid}}
-
