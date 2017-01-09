@@ -1,0 +1,6 @@
+aws_id: ""
+aws_key: ""
+region: ""
+githubsshkey: |-
+  -----BEGIN RSA PRIVATE KEY-----
+  -----END RSA PRIVATE KEY-----

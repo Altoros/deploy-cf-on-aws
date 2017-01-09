@@ -11,6 +11,7 @@ export TF_VAR_system_domain=$system_domain
 export TF_VAR_cf_release=$cf_release
 export TF_VAR_cf_secret=$cf_secret
 export TF_VAR_rds_password=$rds_password
+export TF_VAR_route53_zoneid=$route53_zoneid
 
 cd task-temp/tf-aws
 make destroy-ci
