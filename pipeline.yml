@@ -2,8 +2,8 @@ resources:
 - name: deploy-cf-on-aws
   type: git
   source:
-    uri: git@github.com:poligraph/deploy-cf-on-aws.git
-    branch: develop
+    uri: git@github.com:Altoros/deploy-cf-on-aws.git
+    branch: master
     private_key: {{githubsshkey}}
 - name: cf-workspace
   type: git
