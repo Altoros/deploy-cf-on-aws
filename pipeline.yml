@@ -3,13 +3,13 @@ resources:
   type: git
   source:
     uri: git@github.com:Altoros/deploy-cf-on-aws.git
-    branch: master
+    branch: develop
     private_key: {{githubsshkey}}
 - name: cf-workspace
   type: git
   source:
     uri: git@github.com:Altoros/cf-workspace.git
-    branch: tf-develop
+    branch: master
     private_key: {{githubsshkey}}
 jobs:
 - name: create-aws-resources

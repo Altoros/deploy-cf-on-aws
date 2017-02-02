@@ -1,17 +1,17 @@
 #!/bin/bash
 set -xe
 
-export TF_VAR_access_key=$aws_id
-export TF_VAR_secret_key=$aws_key
-export TF_VAR_region=$region
-export TF_VAR_pub_key=`pwd`/deploy-cf-on-aws/jumpbox.pub
-export TF_VAR_pvt_key=`pwd`/deploy-cf-on-aws/jumpbox.pem
-export TF_VAR_ssl_cert=$ssl_cert
-export TF_VAR_system_domain=$system_domain
-export TF_VAR_cf_release=$cf_release
-export TF_VAR_cf_secret=$cf_secret
-export TF_VAR_rds_password=$rds_password
-export TF_VAR_route53_zoneid=$route53_zoneid
+echo "access_key=$aws_id" >> cf-workspace/terraform/aws/terraform.tfvars
+echo "secret_key=$aws_key" >> cf-workspace/terraform/aws/terraform.tfvars
+echo "region=$region" >> cf-workspace/terraform/aws/terraform.tfvars
+echo "pub_key=`pwd`/deploy-cf-on-aws/jumpbox.pub" >> cf-workspace/terraform/aws/terraform.tfvars
+echo "pvt_key=`pwd`/deploy-cf-on-aws/jumpbox.pem" >> cf-workspace/terraform/aws/terraform.tfvars
+echo "ssl_cert=$ssl_cert" >> cf-workspace/terraform/aws/terraform.tfvars
+echo "system_domain=$system_domain" >> cf-workspace/terraform/aws/terraform.tfvars
+echo "cf_release=$cf_release" >> cf-workspace/terraform/aws/terraform.tfvars
+echo "cf_secret=$cf_secret" >> cf-workspace/terraform/aws/terraform.tfvars
+echo "rds_password=$rds_password" >> cf-workspace/terraform/aws/terraform.tfvars
+echo "route53_zoneid=$route53_zoneid" >> cf-workspace/terraform/aws/terraform.tfvars
 
 echo "altorosci_pvt_key = <<EOF" >> cf-workspace/terraform/aws/terraform.tfvars
 echo "${altorosci_pvt_key}" >> cf-workspace/terraform/aws/terraform.tfvars
