@@ -54,6 +54,17 @@ jobs:
         - name: task-temp
       run:
         path: deploy-cf-on-aws/deploy-cf.sh
+  - task: run-smoke-test-on-cf
+    config:
+      platform: linux
+      image_resource:
+        type: docker-image
+        source: {repository: poligraph/ubuntu-ci, tag: "latest"}
+      inputs:
+        - name: deploy-cf-on-aws
+        - name: task-temp
+      run:
+        path: deploy-cf-on-aws/run-smoke.sh
   - task: destroy-aws-resources-with-terraform
     config:
       platform: linux
