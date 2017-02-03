@@ -9,7 +9,7 @@ resources:
   type: git
   source:
     uri: git@github.com:Altoros/cf-workspace.git
-    branch: master
+    branch: tf-develop
     private_key: {{githubsshkey}}
 jobs:
 - name: create-aws-resources
